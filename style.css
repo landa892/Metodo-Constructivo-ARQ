@@ -1,0 +1,252 @@
+/* RESETEO BÁSICO */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* COLORES Y FONDO GENERAL (Modo Oscuro Elegante) */
+body {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* NAVEGACIÓN */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: rgba(10, 10, 10, 0.95);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #333;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.menu a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.menu a:hover {
+  color: #fff;
+}
+
+/* SECCIONES GENERALES */
+.seccion-oscura {
+  padding: 100px 50px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #333;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+/* INICIO (HERO) */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  /* Clave para el video */
+  overflow: hidden;
+  /* Clave para el video */
+}
+
+/* ESTILO DEL VIDEO */
+.video-fondo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  /* Al fondo de todo */
+}
+
+/* CAPA OSCURA SOBRE EL VIDEO */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+  /* Arriba del video, abajo del texto */
+}
+
+/* EL TEXTO */
+.hero-contenido {
+  position: relative;
+  z-index: 2;
+  /* Bien adelante de todo */
+}
+
+
+.hero-contenido h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.hero-contenido p {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+}
+
+/* BOTONES */
+.boton-outline,
+.boton-contacto {
+  display: inline-block;
+  padding: 15px 40px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.boton-outline:hover,
+.boton-contacto:hover {
+  background-color: #fff;
+  color: #0a0a0a;
+}
+
+.boton-contacto {
+  margin-top: 30px;
+}
+
+/* ESTUDIO */
+.texto-estudio {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.texto-estudio p {
+  margin-bottom: 20px;
+}
+
+/* GALERÍA (FLEXBOX CENTRADO Y ALTURA AUTO) */
+.galeria {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item-galeria {
+  width: 350px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  background-color: #111;
+  /* Fondo por si la imagen tarda en cargar */
+}
+
+.item-galeria img {
+  width: 100%;
+  height: auto;
+  /* Mantiene la proporción real de las imágenes */
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.item-galeria:hover img {
+  transform: scale(1.03);
+  /* Zoom súper sutil */
+}
+
+/* TEXTO SOBRE LA FOTO (Opcional, aparece al pasar el mouse) */
+.info-proyecto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.9));
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.item-galeria:hover .info-proyecto {
+  transform: translateY(0);
+}
+
+.info-proyecto h3 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.info-proyecto p {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #050505;
+  color: #555;
+  font-size: 0.8rem;
+  border-top: 1px solid #111;
+}
+
+/* RESPONSIVE (Para Celulares) */
+@media (max-width: 768px) {
+  .hero-contenido h1 {
+    font-size: 2.5rem;
+  }
+
+  .menu {
+    display: none;
+    /* Oculta el menú en celu para que no rompa arriba */
+  }
+
+  .logo {
+    margin: 0 auto;
+  }
+}
